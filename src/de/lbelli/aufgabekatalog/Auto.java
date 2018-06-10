@@ -21,7 +21,7 @@ public class Auto implements Comparable{
 		PS = pS;
 	}
 	
- 
+  
 	public static void sortAutoPreis(Auto [] autos) {
  		for(int j = 1; j < autos.length; j++) {
 			for(int i = 0; i < autos.length -j; i++) {
@@ -38,6 +38,22 @@ public class Auto implements Comparable{
 		}
 	}
 	
+	
+	@Override
+	public int compareTo(Object object) {
+		Auto auto = (Auto) object;
+		
+		if(this.getPreise() < auto.getPreise())
+			return -1;
+		if(this.getPreise() > auto.getPreise())
+			return 	1;
+		
+		if(this.getLauflaistung() < auto.getLauflaistung())
+			return -1;
+		if(this.getLauflaistung() > auto.getLauflaistung())
+			return 1;
+		return 0;
+	}
 	
 	
 	@Override
@@ -150,21 +166,7 @@ public class Auto implements Comparable{
 	}
 
 
-	@Override
-	public int compareTo(Object object) {
-		Auto auto = (Auto) object;
-		
-		if(this.getPreise() < auto.getPreise())
-			return -1;
-		if(this.getPreise() > auto.getPreise())
-			return 	1;
-		
-		if(this.getLauflaistung() < auto.getLauflaistung())
-			return -1;
-		if(this.getLauflaistung() > auto.getLauflaistung())
-			return 1;
-		return 0;
-	}
+
 	
 	
 }
